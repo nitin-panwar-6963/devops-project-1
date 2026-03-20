@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library Registration</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1e3a8a, #6d28d9, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.container {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    animation: fadeIn 0.8s ease;
+}
+
+/* Title */
+.container h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    color: #ddd;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* Grid */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+.row .input-group {
+    flex: 1;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #1d4ed8;
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📚 Library Registration</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" name="full_name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label>Phone</label>
+                <input type="text" name="phone">
+            </div>
+
+            <div class="input-group">
+                <label>Roll No</label>
+                <input type="text" name="roll_number">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label>Course</label>
+                <input type="text" name="course">
+            </div>
+
+            <div class="input-group">
+                <label>Year</label>
+                <select name="year">
+                    <option>1st</option>
+                    <option>2nd</option>
+                    <option>3rd</option>
+                    <option>4th</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Address</label>
+            <textarea name="address"></textarea>
+        </div>
+
+        <button type="submit">🚀 Submit</button>
+
+    </form>
+</div>
+
+</body>
+</html>
