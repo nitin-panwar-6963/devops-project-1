@@ -5,7 +5,10 @@ services:
     build: .
     ports:
       - "8000:8000"
-    env_file:
-      - .env
+    environment:
+      AWS_ACCESS_KEY_ID: AKIAVZTWJADWJZJF3KV5
+      AWS_SECRET_ACCESS_KEY: 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
+      AWS_REGION: ap-south-1
+      DYNAMODB_TABLE: library
     volumes:
       - .:/app
